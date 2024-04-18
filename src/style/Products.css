@@ -1,0 +1,157 @@
+.all-products {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  position: relative;
+  flex: 1 0 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  justify-content: space-between;
+}
+
+.add-to-cart {
+  /* Align the text with the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Position the button at the bottom */
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.item:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.12),
+    0 0.3125rem 0.625rem rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  width: 70%;
+  text-align: left;
+}
+
+.title {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.price {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    width: 70%;
+    text-align: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease;
+  margin-bottom: 22px;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart {
+  /* padding: 0.5rem 1rem; */
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #ffc107;
+  color: #333;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-to-favorites {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.favorite-icon {
+  border: none;
+  display: inline-flex;
+  padding: 0.25rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+/* Styles for screens smaller than 600px */
+@media (max-width: 600px) {
+    .item {
+      flex: 1 0 40%;
+    }
+  
+    .image {
+      max-width: 100px;
+    }
+  
+    .title,
+    .price {
+      font-size: 0.8rem;
+    }
+  
+    .add-to-cart {
+      font-size: 10px;
+    }
+  }
+  
+  /* Styles for screens between 600px and 900px */
+  @media (min-width: 600px) and (max-width: 900px) {
+    .item {
+      flex: 1 0 22%;
+    }
+  
+    .image {
+      max-width: 120px;
+    }
+  
+    .title,
+    .price {
+      font-size: 0.9rem;
+    }
+  
+    .add-to-cart {
+      font-size: 11px;
+    }
+  }
+  
