@@ -15,6 +15,7 @@ const NavBar = () => {
   const { cartProducts } = React.useContext(CartContext);
   const { setCartProducts } = React.useContext(CartContext);
   const { setCartItems } = React.useContext(CartContext);
+  const { favoriteProducts } = React.useContext(FavoriteContext);
 
   return (
     <>
@@ -52,7 +53,8 @@ const NavBar = () => {
                   <div key={product.id}>
                     <div className="product-name">{product.title}</div>
                     <div className="product-price">{product.price} $</div>
-                    <button className="delete-button"
+                    <button
+                      className="delete-button"
                       onClick={() => {
                         const newCartProducts = [...cartProducts];
                         newCartProducts.splice(index, 1);
@@ -81,8 +83,13 @@ const NavBar = () => {
             <span className="count">{favoriteItems}</span>
             {favoriteDropdownVisible && (
               <div className="dropdown-menu">
-                <div className="product-name">Product Name</div>
-                <div className="product-price">$99.99</div>
+                {favoriteProducts.map((product, index) => (
+                  <div key={product.id}>
+                    <div className="product-name">{product.title}</div>
+                    <div className="product-price">{product.price} $</div>
+                  </div>
+                ))}
+                <div className="fav-prod-total">Products total price: {favoriteProducts.reduce((acc, curr) => acc + curr.price, 0)}$</div>
               </div>
             )}
           </div>

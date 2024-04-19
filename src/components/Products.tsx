@@ -28,6 +28,8 @@ export const Products = ({ products }: { products: Product[] }) => {
   const { favoriteItems, setFavoriteItems } = React.useContext(FavoriteContext);
   const { cartItems, setCartItems } = React.useContext(CartContext);
   const { cartProducts, setCartProducts } = React.useContext(CartContext);
+  const { favoriteProducts, setFavoriteProducts } =
+    React.useContext(FavoriteContext);
 
   return (
     <div className="all-products">
@@ -51,7 +53,21 @@ export const Products = ({ products }: { products: Product[] }) => {
             className="add-to-favorites"
             onClick={() => {
               handleFavoriteClick(product.id);
-              setFavoriteItems(favoriteItems + 1);
+              if (
+                favoriteProducts.some(
+                  (favProduct) => favProduct.id === product.id
+                )
+              ) {
+                setFavoriteProducts(
+                  favoriteProducts.filter(
+                    (favProduct) => favProduct.id !== product.id
+                  )
+                );
+                setFavoriteItems(favoriteItems - 1);
+              } else {
+                setFavoriteProducts([...favoriteProducts, product]);
+                setFavoriteItems(favoriteItems + 1);
+              }
             }}
           >
             <div

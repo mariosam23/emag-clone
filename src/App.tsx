@@ -41,13 +41,21 @@ function App() {
   }, [favoriteItems]);
 
   const [cartProducts, setCartProducts] = React.useState<Product[]>([]);
+  const [favoriteProducts, setFavoriteProducts] = React.useState<Product[]>([]);
 
   return (
     <div>
       <CartContext.Provider
         value={{ cartItems, setCartItems, cartProducts, setCartProducts }}
       >
-        <FavoriteContext.Provider value={{ favoriteItems, setFavoriteItems }}>
+        <FavoriteContext.Provider
+          value={{
+            favoriteItems,
+            setFavoriteItems,
+            favoriteProducts,
+            setFavoriteProducts,
+          }}
+        >
           <NavBar />
           <Products products={product} />
         </FavoriteContext.Provider>
@@ -61,7 +69,7 @@ function App() {
     localStorage.removeItem("favoriteItems");
     setCartItems(0);
     setFavoriteItems(0);
-  }  
+  }
 }
 
 export default App;
