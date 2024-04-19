@@ -40,14 +40,28 @@ function App() {
     localStorage.setItem("favoriteItems", favoriteItems.toString());
   }, [favoriteItems]);
 
+  const [cartProducts, setCartProducts] = React.useState<Product[]>([]);
+
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems }}>
-      <FavoriteContext.Provider value={{ favoriteItems, setFavoriteItems }}>
-        <NavBar />
-        <Products products={product} />
-      </FavoriteContext.Provider>
-    </CartContext.Provider>
+    <div>
+      <CartContext.Provider
+        value={{ cartItems, setCartItems, cartProducts, setCartProducts }}
+      >
+        <FavoriteContext.Provider value={{ favoriteItems, setFavoriteItems }}>
+          <NavBar />
+          <Products products={product} />
+        </FavoriteContext.Provider>
+      </CartContext.Provider>
+      {/* <button onClick={clearStorage}>Clear Storage</button> */}
+    </div>
   );
+
+  function clearStorage() {
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("favoriteItems");
+    setCartItems(0);
+    setFavoriteItems(0);
+  }  
 }
 
 export default App;

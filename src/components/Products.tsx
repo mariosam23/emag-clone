@@ -25,14 +25,9 @@ export const Products = ({ products }: { products: Product[] }) => {
     setFavoriteClicked({ ...favoriteClicked, [id]: !favoriteClicked[id] });
   };
 
-  const [cart, setCart] = useState<Product[]>([]);
-
-  const handleCartClick = (product: Product) => {
-    setCart([...cart, product]);
-  };
-
   const { favoriteItems, setFavoriteItems } = React.useContext(FavoriteContext);
   const { cartItems, setCartItems } = React.useContext(CartContext);
+  const { cartProducts, setCartProducts } = React.useContext(CartContext);
 
   return (
     <div className="all-products">
@@ -43,8 +38,11 @@ export const Products = ({ products }: { products: Product[] }) => {
           <p className="price">{product.price} $</p>
           <button
             className="add-to-cart"
-            onClick={() => {setCartItems(cartItems + 1);}}
-            >
+            onClick={() => {
+              setCartItems(cartItems + 1);
+              setCartProducts([...cartProducts, product]);
+            }}
+          >
             <div className="cart-icon">
               <ShoppingCartIcon /> Add to Cart
             </div>
@@ -67,10 +65,6 @@ export const Products = ({ products }: { products: Product[] }) => {
       ))}
     </div>
   );
-};
-
-export const filterByCategory = (products: Product[], category: string) => {
-  return products.filter((product) => product.category === category);
 };
 
 export default Products;

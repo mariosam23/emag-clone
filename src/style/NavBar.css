@@ -1,100 +1,100 @@
 .navbar {
-	height: 81px;
-	display: flex;
-	align-items: center;
-	background-color: black;
-	position: sticky;
-	top: 0;
-	z-index: 100;
+  height: 81px;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo-img {
-	width: 140px;
-	object-fit: contain;
-	margin: 0px;
-	margin-top: 1.2px;
+  width: 140px;
+  object-fit: contain;
+  margin: 0px;
+  margin-top: 1.2px;
 }
 
 .search-icon {
-	padding: 5px;
-	height: 22px !important;
-	background-color: #FFC107;
-	cursor: pointer;
+  padding: 5px;
+  height: 22px !important;
+  background-color: #ffc107;
+  cursor: pointer;
 }
 
 .search {
-	margin: 19px;
-	display: flex;
-	flex: 0.9;
-	align-items: center;
-	border-radius: 24px;
+  margin: 19px;
+  display: flex;
+  flex: 0.9;
+  align-items: center;
+  border-radius: 24px;
 }
 
 .menu {
-	display: flex;
-	justify-content: space-evenly;
-	/* cursor: pointer; */
-	flex: 1.2;
-	margin-left: -5px;
+  display: flex;
+  justify-content: space-evenly;
+  /* cursor: pointer; */
+  flex: 1.2;
+  margin-left: -5px;
 }
 
 .search-input {
-	height: 12px;
-	padding: 10px;
-	width: 100%;
-	border: none;
+  height: 12px;
+  padding: 10px;
+  width: 100%;
+  border: none;
 }
 
 .menu-option {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-left: 0px;
-	margin-right: 10px;
-	color: #E0E0E0;
-	cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0px;
+  margin-right: 10px;
+  color: #e0e0e0;
+  cursor: pointer;
 }
 
 .menu-option:hover {
-	color: #FFC107;
+  color: #ffc107;
 }
 
 .menu-option-row {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .option-cart {
-	display: flex;
-	align-items: center;
-	color: #38B449;
-	cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #38b449;
+  cursor: pointer;
 }
 
 .option-cart:hover {
-	color: #FFC107;
+  color: #ffc107;
 }
 
 .option-favorite {
-	display: flex;
-	align-items: center;
-	color: #38B449;
-	cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #38b449;
+  cursor: pointer;
 }
 
 .option-favorite:hover {
-	color: #FFC107;
+  color: #ffc107;
 }
 
 .count {
-	margin-left: 10px;
-	margin-right: 10px;
-	color: red;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: red;
 }
 
 .nav-favorite-icon {
-	color: #38B449;
+  color: #38b449;
 }
 
 .option-cart,
@@ -103,30 +103,47 @@
 }
 
 .dropdown-menu {
-	position: absolute;
-	top: 102%;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 200px;
-	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
-	color: gray;
-	padding: 10px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 102%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+  color: gray;
+  padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-menu img {
-	width: 50px;
-	height: 50px;
-	object-fit: cover;
-	margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
 }
 
 .dropdown-menu .product-name {
-	font-size: 16px;
-	font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .dropdown-menu .product-price {
-	font-size: 14px;
-	color: #03DAC6;
+  font-size: 14px;
+  color: #03dac6;
+}
+
+.delete-button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.delete-button:hover {
+  background-color: #da190b;
+  color: white;
 }
