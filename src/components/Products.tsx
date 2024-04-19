@@ -1,5 +1,7 @@
 import "../style/Products.css";
 import React, { useState } from "react";
+import { CartContext } from "./CartContext";
+import { FavoriteContext } from "./FavoriteContext";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
@@ -29,6 +31,9 @@ export const Products = ({ products }: { products: Product[] }) => {
     setCart([...cart, product]);
   };
 
+  const { favoriteItems, setFavoriteItems } = React.useContext(FavoriteContext);
+  const { cartItems, setCartItems } = React.useContext(CartContext);
+
   return (
     <div className="all-products">
       {products.slice(0, 20).map((product) => (
@@ -38,8 +43,8 @@ export const Products = ({ products }: { products: Product[] }) => {
           <p className="price">{product.price} $</p>
           <button
             className="add-to-cart"
-            onClick={() => handleCartClick(product)}
-          >
+            onClick={() => {setCartItems(cartItems + 1);}}
+            >
             <div className="cart-icon">
               <ShoppingCartIcon /> Add to Cart
             </div>
@@ -47,8 +52,8 @@ export const Products = ({ products }: { products: Product[] }) => {
           <button
             className="add-to-favorites"
             onClick={() => {
-              /* Add to favorites functionality */
               handleFavoriteClick(product.id);
+              setFavoriteItems(favoriteItems + 1);
             }}
           >
             <div

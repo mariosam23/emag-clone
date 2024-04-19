@@ -4,8 +4,12 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Product } from "./Products";
+import { CartContext } from './CartContext';
+import { FavoriteContext } from './FavoriteContext';
 
 const NavBar = () => {
+  const { cartItems } = React.useContext(CartContext);
+  const { favoriteItems } = React.useContext(FavoriteContext);
   const [cartDropdownVisible, setCartDropdownVisible] = useState(false);
   const [favoriteDropdownVisible, setFavoriteDropdownVisible] = useState(false);
 
@@ -38,7 +42,7 @@ const NavBar = () => {
             onMouseLeave={() => setCartDropdownVisible(false)}
           >
             <ShoppingCartIcon className="cart-icon" />
-            <span className="count">{0}</span>
+            <span className="count">{cartItems}</span>
             {cartDropdownVisible && (
               <div className="dropdown-menu">
                 <div className="product-name">Product Name</div>
@@ -54,7 +58,7 @@ const NavBar = () => {
             onMouseLeave={() => setFavoriteDropdownVisible(false)}
           >
             <FavoriteIcon className="nav-favorite-icon" />
-            <span className="count">0</span>
+            <span className="count">{ favoriteItems }</span>
             {favoriteDropdownVisible && (
               <div className="dropdown-menu">
                 <div className="product-name">Product Name</div>
