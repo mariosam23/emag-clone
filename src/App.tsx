@@ -40,8 +40,39 @@ function App() {
     localStorage.setItem("favoriteItems", favoriteItems.toString());
   }, [favoriteItems]);
 
-  const [cartProducts, setCartProducts] = React.useState<Product[]>([]);
-  const [favoriteProducts, setFavoriteProducts] = React.useState<Product[]>([]);
+  const [favoriteClicked, setFavoriteClicked] = useState<{
+    [key: number]: boolean;
+  }>(() => {
+    return localStorage.getItem("favoriteClicked")
+      ? JSON.parse(localStorage.getItem("favoriteClicked")!)
+      : {};
+  });
+
+  React.useEffect(() => {
+    localStorage.setItem("favoriteClicked", JSON.stringify(favoriteClicked));
+  }, [favoriteClicked]);
+
+  const [cartProducts, setCartProducts] = React.useState<Product[]>(() => {
+    return localStorage.getItem("cartProducts")
+      ? JSON.parse(localStorage.getItem("cartProducts")!)
+      : [];
+  });
+
+  const [favoriteProducts, setFavoriteProducts] = React.useState<Product[]>(
+    () => {
+      return localStorage.getItem("favoriteProducts")
+        ? JSON.parse(localStorage.getItem("favoriteProducts")!)
+        : [];
+    }
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
+
+  React.useEffect(() => {
+    localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
+  }, [favoriteProducts]);
 
   return (
     <div>
@@ -60,15 +91,21 @@ function App() {
           <Products products={product} />
         </FavoriteContext.Provider>
       </CartContext.Provider>
-      {/* <button onClick={clearStorage}>Clear Storage</button> */}
+      <button onClick={clearStorage}>Clear Storage</button>
     </div>
   );
 
   function clearStorage() {
     localStorage.removeItem("cartItems");
     localStorage.removeItem("favoriteItems");
+    localStorage.removeItem("cartProducts");
+    localStorage.removeItem("favoriteProducts");
+    localStorage.removeItem("favoriteClicked");
     setCartItems(0);
     setFavoriteItems(0);
+    setCartProducts([]);
+    setFavoriteProducts([]);
+    setFavoriteClicked({});
   }
 }
 

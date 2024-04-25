@@ -1,5 +1,5 @@
-import React from 'react';
-import { Product } from './Products';
+import React from "react";
+import { Product } from "./Products";
 
 interface CartContextType {
   cartItems: number;

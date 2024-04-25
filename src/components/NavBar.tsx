@@ -89,7 +89,10 @@ const NavBar = () => {
                     <div className="product-price">{product.price} $</div>
                   </div>
                 ))}
-                <div className="fav-prod-total">Products total price: {favoriteProducts.reduce((acc, curr) => acc + curr.price, 0)}$</div>
+                <div className="fav-prod-total">
+                  Products total price:{" "}
+                  {favoriteProducts.reduce((acc, curr) => acc + curr.price, 0)}$
+                </div>
               </div>
             )}
           </div>

@@ -22,18 +22,17 @@ export const Products = ({ products }: { products: Product[] }) => {
   );
 
   const handleFavoriteClick = (id: number) => {
-    setFavoriteClicked({ ...favoriteClicked, [id]: !favoriteClicked[id] });
+    setFavoriteClicked((prevState) => ({ ...prevState, [id]: !prevState[id] }));
   };
 
   const { favoriteItems, setFavoriteItems } = React.useContext(FavoriteContext);
   const { cartItems, setCartItems } = React.useContext(CartContext);
   const { cartProducts, setCartProducts } = React.useContext(CartContext);
-  const { favoriteProducts, setFavoriteProducts } =
-    React.useContext(FavoriteContext);
+  const { favoriteProducts, setFavoriteProducts } = React.useContext(FavoriteContext);
 
   return (
     <div className="all-products">
-      {products.slice(0, 20).map((product) => (
+      {products.slice(0, 25).map((product) => (
         <div className="item" key={product.id}>
           <p className="title">{product.title}</p>
           <img className="image" src={product.images[0]} />

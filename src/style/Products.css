@@ -52,16 +52,16 @@
 }
 
 .price {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
 
-    font-size: 1rem;
-    color: #333;
-    font-weight: bold;
-    width: 70%;
-    text-align: center;
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  width: 70%;
+  text-align: center;
 }
 
 .image {
@@ -78,9 +78,9 @@
 }
 
 .cart-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-to-cart {
@@ -114,44 +114,42 @@
   right: 10px;
 }
 
-
 /* Styles for screens smaller than 600px */
 @media (max-width: 600px) {
-    .item {
-      flex: 1 0 40%;
-    }
-  
-    .image {
-      max-width: 100px;
-    }
-  
-    .title,
-    .price {
-      font-size: 0.8rem;
-    }
-  
-    .add-to-cart {
-      font-size: 10px;
-    }
+  .item {
+    flex: 1 0 40%;
   }
-  
-  /* Styles for screens between 600px and 900px */
-  @media (min-width: 600px) and (max-width: 900px) {
-    .item {
-      flex: 1 0 22%;
-    }
-  
-    .image {
-      max-width: 120px;
-    }
-  
-    .title,
-    .price {
-      font-size: 0.9rem;
-    }
-  
-    .add-to-cart {
-      font-size: 11px;
-    }
+
+  .image {
+    max-width: 100px;
   }
-  
+
+  .title,
+  .price {
+    font-size: 0.8rem;
+  }
+
+  .add-to-cart {
+    font-size: 10px;
+  }
+}
+
+/* Styles for screens between 600px and 900px */
+@media (min-width: 600px) and (max-width: 900px) {
+  .item {
+    flex: 1 0 22%;
+  }
+
+  .image {
+    max-width: 120px;
+  }
+
+  .title,
+  .price {
+    font-size: 0.9rem;
+  }
+
+  .add-to-cart {
+    font-size: 11px;
+  }
+}
