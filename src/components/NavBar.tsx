@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState} from "react";
 import "../style/NavBar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -7,15 +7,16 @@ import { Product } from "./Products";
 import { CartContext } from "./CartContext";
 import { FavoriteContext } from "./FavoriteContext";
 
-const NavBar = () => {
-  const { cartItems } = React.useContext(CartContext);
-  const { favoriteItems } = React.useContext(FavoriteContext);
+const NavBar = ({ categories, setSelectedCategory }: { categories: string[], setSelectedCategory: (category: string) => void }) => {
+  const { cartItems } = useContext(CartContext);
+  const { favoriteItems } = useContext(FavoriteContext);
   const [cartDropdownVisible, setCartDropdownVisible] = useState(false);
   const [favoriteDropdownVisible, setFavoriteDropdownVisible] = useState(false);
-  const { cartProducts } = React.useContext(CartContext);
-  const { setCartProducts } = React.useContext(CartContext);
-  const { setCartItems } = React.useContext(CartContext);
-  const { favoriteProducts } = React.useContext(FavoriteContext);
+  const { cartProducts } = useContext(CartContext);
+  const { setCartProducts } = useContext(CartContext);
+  const { setCartItems } = useContext(CartContext);
+  const { favoriteProducts } = useContext(FavoriteContext);
+  const [categoriesVisible, setCategoriesVisible] = useState(false);
 
   return (
     <>
@@ -28,9 +29,22 @@ const NavBar = () => {
         </div>
 
         <div className="menu">
-          <div className="menu-option">
-            <span className="menu-option-row">Contul meu</span>
-          </div>
+            <div className="option-products"
+              onMouseEnter={() => setCategoriesVisible(true)}
+              onMouseLeave={() => setCategoriesVisible(false)}
+            >
+              <div className="menu-option">Produse</div>
+              {categoriesVisible && (
+                <div className="dropdown-menu">
+                  {categories.map((category) => (
+                    <div className="category" onClick={() => setSelectedCategory(category)}>
+                      {category}
+                    </div>
+                  ))}
+                  <div className="all" onClick={() => setSelectedCategory("")}>All</div>
+                </div>
+              )}
+            </div>
 
           <div className="menu-option">
             <span className="menu-option-row">Setari</span>

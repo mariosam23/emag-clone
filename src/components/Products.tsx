@@ -13,7 +13,7 @@ export interface Product {
   category: string;
 }
 
-export const Products = ({ products }: { products: Product[] }) => {
+export const Products = ({ products, selectedCategory }: { products: Product[], selectedCategory: string | null }) => {
   const [favoriteClicked, setFavoriteClicked] = useState<{ [key : number]: boolean}>
   (() => {
     return localStorage.getItem("favoriteClicked")
@@ -36,7 +36,7 @@ export const Products = ({ products }: { products: Product[] }) => {
 
   return (
     <div className="all-products">
-      {products.slice(0, 25).map((product) => (
+      {products.filter(product => !selectedCategory || product.category === selectedCategory).slice(0, 30).map((product) => (
         <div className="item" key={product.id}>
           <p className="title">{product.title}</p>
           <img className="image" src={product.images[0]} />

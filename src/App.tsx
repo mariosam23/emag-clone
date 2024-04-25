@@ -12,9 +12,13 @@ const url = "https://dummyjson.com/products";
 
 function App() {
   const [product, setProduct] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   useEffect(() => {
     axios.get(url).then((res) => {
       setProduct(res.data.products);
+      const uniqueCategories = [...new Set(res.data.products.map((item:Product) => item.category))];
+      setCategories(uniqueCategories);
     });
   }, []);
 
@@ -72,11 +76,10 @@ function App() {
             setFavoriteProducts,
           }}
         >
-          <NavBar />
-          <Products products={product} />
+          <NavBar categories={categories} setSelectedCategory={setSelectedCategory} />
+          <Products products={product} selectedCategory={selectedCategory} />
         </FavoriteContext.Provider>
       </CartContext.Provider>
-      <button onClick={clearStorage}>Clear Storage</button>
     </div>
   );
 
