@@ -9,56 +9,41 @@ import { useState } from "react";
 import React from "react";
 
 const url = "https://dummyjson.com/products";
-const products: Product[] = [];
 
 function App() {
   const [product, setProduct] = useState<Product[]>([]);
   useEffect(() => {
     axios.get(url).then((res) => {
       setProduct(res.data.products);
-
-      console.log(products);
     });
   }, []);
 
-  const [cartItems, setCartItems] = React.useState(() => {
+  const [cartItems, setCartItems] = useState(() => {
     return localStorage.getItem("cartItems")
       ? Number(localStorage.getItem("cartItems"))
       : 0;
   });
-  const [favoriteItems, setFavoriteItems] = React.useState(() => {
+  const [favoriteItems, setFavoriteItems] = useState(() => {
     return localStorage.getItem("favoriteItems")
       ? Number(localStorage.getItem("favoriteItems"))
       : 0;
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("cartItems", cartItems.toString());
   }, [cartItems]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("favoriteItems", favoriteItems.toString());
   }, [favoriteItems]);
 
-  const [favoriteClicked, setFavoriteClicked] = useState<{
-    [key: number]: boolean;
-  }>(() => {
-    return localStorage.getItem("favoriteClicked")
-      ? JSON.parse(localStorage.getItem("favoriteClicked")!)
-      : {};
-  });
-
-  React.useEffect(() => {
-    localStorage.setItem("favoriteClicked", JSON.stringify(favoriteClicked));
-  }, [favoriteClicked]);
-
-  const [cartProducts, setCartProducts] = React.useState<Product[]>(() => {
+  const [cartProducts, setCartProducts] = useState<Product[]>(() => {
     return localStorage.getItem("cartProducts")
       ? JSON.parse(localStorage.getItem("cartProducts")!)
       : [];
   });
 
-  const [favoriteProducts, setFavoriteProducts] = React.useState<Product[]>(
+  const [favoriteProducts, setFavoriteProducts] = useState<Product[]>(
     () => {
       return localStorage.getItem("favoriteProducts")
         ? JSON.parse(localStorage.getItem("favoriteProducts")!)
@@ -66,11 +51,11 @@ function App() {
     }
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   }, [cartProducts]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
   }, [favoriteProducts]);
 

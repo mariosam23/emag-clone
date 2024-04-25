@@ -1,5 +1,5 @@
 import "../style/Products.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import { FavoriteContext } from "./FavoriteContext";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -14,12 +14,16 @@ export interface Product {
 }
 
 export const Products = ({ products }: { products: Product[] }) => {
-  const [favoriteClicked, setFavoriteClicked] = useState<{
-    [key: number]: boolean;
-  }>({});
-  const [cartClicked, setCartClicked] = useState<{ [key: number]: boolean }>(
-    {}
-  );
+  const [favoriteClicked, setFavoriteClicked] = useState<{ [key : number]: boolean}>
+  (() => {
+    return localStorage.getItem("favoriteClicked")
+    ? JSON.parse(localStorage.getItem("favoriteClicked")!)
+    : {};
+  })
+
+  useEffect(() => {
+    localStorage.setItem("favoriteClicked", JSON.stringify(favoriteClicked));
+  }, [favoriteClicked]);
 
   const handleFavoriteClick = (id: number) => {
     setFavoriteClicked((prevState) => ({ ...prevState, [id]: !prevState[id] }));
