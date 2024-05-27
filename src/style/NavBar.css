@@ -1,5 +1,5 @@
 .navbar {
-  height: 81px;
+  height: 5.06rem;
   display: flex;
   align-items: center;
   background-color: black;
@@ -9,38 +9,38 @@
 }
 
 .logo-img {
-  width: 140px;
+  width: 8.75rem;
   object-fit: contain;
-  margin: 0px;
-  margin-top: 1.2px;
+  margin: 0.00rem;
+  margin-top: 1.0.12rem;
 }
 
 .search-icon {
-  padding: 5px;
-  height: 22px !important;
+  padding: 0.31rem;
+  height: 1.38rem !important;
   background-color: #ffc107;
   cursor: pointer;
 }
 
 .search {
-  margin: 19px;
-  margin-left: 100px;
+  margin: 1.19rem;
+  margin-left: 6.25rem;
   display: flex;
   flex: 0.9;
   align-items: center;
-  border-radius: 24px;
+  border-radius: 1.50rem;
 }
 
 .menu {
   display: flex;
   justify-content: space-evenly;
   flex: 1.1;
-  margin-left: -10px;
+  margin-left: -0.62rem;
 }
 
 .search-input {
-  height: 12px;
-  padding: 10px;
+  height: 0.75rem;
+  padding: 0.62rem;
   width: 100%;
   border: none;
 }
@@ -49,8 +49,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 0px;
-  margin-right: 10px;
+  margin-left: 0.00rem;
+  margin-right: 0.62rem;
   color: #e0e0e0;
   cursor: pointer;
 }
@@ -81,7 +81,7 @@
 }
 
 .all {
-  font-size: 17px;
+  font-size: 1.06rem;
   color: rgb(222, 250, 12);
   cursor: pointer;
   font-style: bold, italic;
@@ -96,12 +96,12 @@
   align-items: center;
   color: #38b449;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 0.31rem;
   position: relative;
 }
 
 .category {
-  font-size: 17px;
+  font-size: 1.06rem;
   color: rgb(249, 244, 238);
   cursor: pointer;
 }
@@ -115,12 +115,12 @@
   align-items: center;
   color: #38b449;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 0.31rem;
 }
 
 .count {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0.62rem;
+  margin-right: 0.62rem;
   color: red;
 }
 
@@ -138,38 +138,38 @@
   top: 102%;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px;
+  width: 11.25rem;
   /* background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%); */
   background: #ffc107;
   color: gray;
-  padding: 10px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 0.62rem;
+  box-shadow: 0.00rem 0.50rem 1.00rem 0.00rem rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
   .dropdown-menu {
-    width: 100px;
+    width: 6.25rem;
   }
 
   .search {
-    margin: 19px;
+    margin: 1.19rem;
   }
 }
 
 .dropdown-menu img {
-  width: 50px;
-  height: 50px;
+  width: 3.12rem;
+  height: 3.12rem;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 0.62rem;
 }
 
 .dropdown-menu .product-name {
-  font-size: 16px;
+  font-size: 1.00rem;
   font-weight: bold;
 }
 
 .dropdown-menu .product-price {
-  font-size: 14px;
+  font-size: 0.88rem;
   color: #03dac6;
 }
 
@@ -178,11 +178,11 @@
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   text-align: center;
   transition-duration: 0.4s;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 0.81rem;
 }
 
 .delete-button:hover {

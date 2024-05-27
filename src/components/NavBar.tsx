@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "../style/NavBar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -7,16 +7,23 @@ import { Product } from "./Products";
 import { CartContext } from "./CartContext";
 import { FavoriteContext } from "./FavoriteContext";
 
-const NavBar = ({ categories, setSelectedCategory }: { categories: string[], setSelectedCategory: (category: string) => void }) => {
+const NavBar = ({
+  categories,
+  setSelectedCategory,
+}: {
+  categories: string[];
+  setSelectedCategory: (category: string) => void;
+}) => {
   const { cartItems } = useContext(CartContext);
   const { favoriteItems } = useContext(FavoriteContext);
-  const [cartDropdownVisible, setCartDropdownVisible] = useState(false);
-  const [favoriteDropdownVisible, setFavoriteDropdownVisible] = useState(false);
   const { cartProducts } = useContext(CartContext);
   const { setCartProducts } = useContext(CartContext);
   const { setCartItems } = useContext(CartContext);
   const { favoriteProducts } = useContext(FavoriteContext);
+
   const [categoriesVisible, setCategoriesVisible] = useState(false);
+  const [cartDropdownVisible, setCartDropdownVisible] = useState(false);
+  const [favoriteDropdownVisible, setFavoriteDropdownVisible] = useState(false);
 
   return (
     <>
@@ -29,22 +36,28 @@ const NavBar = ({ categories, setSelectedCategory }: { categories: string[], set
         </div>
 
         <div className="menu">
-            <div className="option-products"
-              onMouseEnter={() => setCategoriesVisible(true)}
-              onMouseLeave={() => setCategoriesVisible(false)}
-            >
-              <div className="menu-option">Produse</div>
-              {categoriesVisible && (
-                <div className="dropdown-menu">
-                  {categories.map((category) => (
-                    <div className="category" onClick={() => setSelectedCategory(category)}>
-                      {category}
-                    </div>
-                  ))}
-                  <div className="all" onClick={() => setSelectedCategory("")}>All</div>
+          <div
+            className="option-products"
+            onMouseEnter={() => setCategoriesVisible(true)}
+            onMouseLeave={() => setCategoriesVisible(false)}
+          >
+            <div className="menu-option">Produse</div>
+            {categoriesVisible && (
+              <div className="dropdown-menu">
+                {categories.map((category) => (
+                  <div
+                    className="category"
+                    onClick={() => setSelectedCategory(category)}
+                  >
+                    {category}
+                  </div>
+                ))}
+                <div className="all" onClick={() => setSelectedCategory("")}>
+                  All
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+          </div>
 
           <div className="menu-option">
             <span className="menu-option-row">Setari</span>
@@ -81,8 +94,13 @@ const NavBar = ({ categories, setSelectedCategory }: { categories: string[], set
                   </div>
                 ))}
                 <div className="products-total">
-                  Products total price:{" "}
-                  {cartProducts.reduce((acc, curr) => acc + curr.price, 0)}$
+                  <div className="products-total">
+                    Products total price:{" "}
+                    {cartProducts
+                      .reduce((acc, curr) => acc + curr.price, 0)
+                      .toFixed(2)}
+                    $
+                  </div>
                 </div>
               </div>
             )}
@@ -104,8 +122,13 @@ const NavBar = ({ categories, setSelectedCategory }: { categories: string[], set
                   </div>
                 ))}
                 <div className="fav-prod-total">
-                  Products total price:{" "}
-                  {favoriteProducts.reduce((acc, curr) => acc + curr.price, 0)}$
+                  <div className="products-total">
+                    Products total price:{" "}
+                    {favoriteProducts
+                      .reduce((acc, curr) => acc + curr.price, 0)
+                      .toFixed(2)}
+                    $
+                  </div>
                 </div>
               </div>
             )}

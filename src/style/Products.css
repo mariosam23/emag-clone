@@ -1,9 +1,8 @@
 .all-products {
-  /* margin-top: 10px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  /* background-color: #fde99144; */
+  justify-content: center;
 }
 
 .item {
@@ -15,7 +14,7 @@
   gap: 1rem;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: 0.06rem solid #ddd;
   border-radius: 0.5rem;
   background-color: #f9f9f9;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
@@ -23,14 +22,11 @@
 }
 
 .add-to-cart {
-  /* Align the text with the icon */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Position the button at the bottom */
   position: absolute;
-  bottom: 10px;
+  bottom: 0.62rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -54,7 +50,7 @@
 
 .price {
   position: absolute;
-  bottom: 40px;
+  bottom: 2.50rem;
   left: 50%;
   transform: translateX(-50%);
 
@@ -67,11 +63,11 @@
 
 .image {
   width: 100%;
-  max-width: 140px;
+  max-width: 5.75rem;
   height: auto;
   border-radius: 0.25rem;
   transition: transform 0.3s ease;
-  margin-bottom: 22px;
+  margin-bottom: 1.08rem;
 }
 
 .image:hover {
@@ -85,12 +81,11 @@
 }
 
 .add-to-cart {
-  /* padding: 0.5rem 1rem; */
   border: none;
   border-radius: 0.25rem;
   background-color: #ffc107;
   color: #333;
-  font-size: 13px;
+  font-size: 0.81rem;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -111,18 +106,17 @@
   display: inline-flex;
   padding: 0.25rem;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.62rem;
+  right: 0.62rem;
 }
 
-/* Styles for screens smaller than 600px */
-@media (max-width: 600px) {
+@media (max-width: 37.50rem) {
   .item {
     flex: 0 0 30%;
   }
 
   .image {
-    max-width: 100px;
+    max-width: 6.25rem;
   }
 
   .title,
@@ -131,18 +125,17 @@
   }
 
   .add-to-cart {
-    font-size: 10px;
+    font-size: 0.62rem;
   }
 }
 
-/* Styles for screens between 600px and 900px */
-@media (min-width: 600px) and (max-width: 900px) {
+@media (min-width: 37.50rem) and (max-width: 56.25rem) {
   .item {
     flex: 0 0 22%;
   }
 
   .image {
-    max-width: 120px;
+    max-width: 7.50rem;
   }
 
   .title,
@@ -151,6 +144,6 @@
   }
 
   .add-to-cart {
-    font-size: 11px;
+    font-size: 0.69rem;
   }
 }

@@ -14,10 +14,13 @@ function App() {
   const [product, setProduct] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   useEffect(() => {
     axios.get(url).then((res) => {
       setProduct(res.data.products);
-      const uniqueCategories = [...new Set(res.data.products.map((item:Product) => item.category))];
+      const uniqueCategories = [
+        ...new Set(res.data.products.map((item: Product) => item.category)),
+      ];
       setCategories(uniqueCategories);
     });
   }, []);
@@ -27,6 +30,7 @@ function App() {
       ? Number(localStorage.getItem("cartItems"))
       : 0;
   });
+
   const [favoriteItems, setFavoriteItems] = useState(() => {
     return localStorage.getItem("favoriteItems")
       ? Number(localStorage.getItem("favoriteItems"))
@@ -47,13 +51,11 @@ function App() {
       : [];
   });
 
-  const [favoriteProducts, setFavoriteProducts] = useState<Product[]>(
-    () => {
-      return localStorage.getItem("favoriteProducts")
-        ? JSON.parse(localStorage.getItem("favoriteProducts")!)
-        : [];
-    }
-  );
+  const [favoriteProducts, setFavoriteProducts] = useState<Product[]>(() => {
+    return localStorage.getItem("favoriteProducts")
+      ? JSON.parse(localStorage.getItem("favoriteProducts")!)
+      : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
@@ -76,25 +78,15 @@ function App() {
             setFavoriteProducts,
           }}
         >
-          <NavBar categories={categories} setSelectedCategory={setSelectedCategory} />
+          <NavBar
+            categories={categories}
+            setSelectedCategory={setSelectedCategory}
+          />
           <Products products={product} selectedCategory={selectedCategory} />
         </FavoriteContext.Provider>
       </CartContext.Provider>
     </div>
   );
-
-  function clearStorage() {
-    localStorage.removeItem("cartItems");
-    localStorage.removeItem("favoriteItems");
-    localStorage.removeItem("cartProducts");
-    localStorage.removeItem("favoriteProducts");
-    localStorage.removeItem("favoriteClicked");
-    setCartItems(0);
-    setFavoriteItems(0);
-    setCartProducts([]);
-    setFavoriteProducts([]);
-    setFavoriteClicked({});
-  }
 }
 
 export default App;
