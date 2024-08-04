@@ -14,11 +14,9 @@ const NavBar = ({
   categories: string[];
   setSelectedCategory: (category: string) => void;
 }) => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
   const { favoriteItems } = useContext(FavoriteContext);
-  const { cartProducts } = useContext(CartContext);
-  const { setCartProducts } = useContext(CartContext);
-  const { setCartItems } = useContext(CartContext);
+  const { cartProducts, setCartProducts } = useContext(CartContext);
   const { favoriteProducts } = useContext(FavoriteContext);
 
   const [categoriesVisible, setCategoriesVisible] = useState(false);

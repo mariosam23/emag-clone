@@ -90,7 +90,7 @@ export const Products = ({
               <div
                 className="favorite-icon"
                 style={{
-                  color: favoriteClicked[product.id] ? "red" : "inherit",
+                  color: favoriteClicked[product.id] ? "red" : "black",
                 }}
               >
                 <FavoriteIcon />

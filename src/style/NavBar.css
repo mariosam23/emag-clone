@@ -17,7 +17,7 @@
 
 .search-icon {
   padding: 0.31rem;
-  height: 1.38rem !important;
+  height: 1.38rem;
   background-color: #ffc107;
   cursor: pointer;
 }
@@ -139,7 +139,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 11.25rem;
-  /* background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%); */
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   background: #ffc107;
   color: gray;
   padding: 0.62rem;
@@ -170,7 +170,7 @@
 
 .dropdown-menu .product-price {
   font-size: 0.88rem;
-  color: #03dac6;
+  color: #141515;
 }
 
 .delete-button {
